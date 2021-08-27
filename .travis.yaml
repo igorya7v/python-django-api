@@ -1,0 +1,14 @@
+language: python
+python:
+  - "3.7"
+
+services:
+  - docker
+
+before_script: pip install docker-compose
+
+script:
+  # flake8: a linting toolkit for code style,
+  # programming errors (unused imports and undefined names),
+  # check cyclomatic complexity (count of the number of decisions in the code).
+  - docker-compose run app sh -c "python manage.py test && flake8"
